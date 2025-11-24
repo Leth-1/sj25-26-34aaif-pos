@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Auto
+comment1.params=
+comment1.target=Auto()
+comment10.params=
+comment10.target=int\ gesamtGewicht()
+comment11.params=
+comment11.target=void\ printAuto()
+comment2.params=name\ eigengewicht
+comment2.target=Auto(java.lang.String,\ int)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=
+comment4.target=int\ getEigengewicht()
+comment5.params=name
+comment5.target=void\ setName(java.lang.String)
+comment6.params=eigengewicht
+comment6.target=void\ setEigengewicht(int)
+comment7.params=person
+comment7.target=void\ einsteigen(Person)
+comment8.params=person
+comment8.target=void\ aussteigen(Person)
+comment9.params=name
+comment9.target=void\ aussteigen(java.lang.String)
+numComments=12
