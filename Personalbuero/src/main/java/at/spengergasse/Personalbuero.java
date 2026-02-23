@@ -3,9 +3,10 @@ package at.spengergasse;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Personalbuero {
-    private LinkedList<Mitarbeiter> employees; // <-- Collection.
+    private List<Mitarbeiter> employees; // <-- Collection.
 
 
     public Personalbuero() {
@@ -88,12 +89,12 @@ public class Personalbuero {
         if (alter < 15) {
             throw new IllegalArgumentException("Fehler: Alter muss 15 oder mehr sein!");
         }
-        if (employees.isEmpty()){
+        if (employees.isEmpty()) {
             return -99;
         }
         int count = 0;
-        for (Mitarbeiter ma : employees){
-            if (ma.berechneAlter() == alter){
+        for (Mitarbeiter ma : employees) {
+            if (ma.berechneAlter() == alter) {
                 count++;
             }
 
@@ -101,7 +102,6 @@ public class Personalbuero {
         return count;
     }
 
-    
 
     @Override
     public String toString() {
