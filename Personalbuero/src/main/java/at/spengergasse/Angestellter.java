@@ -8,6 +8,11 @@ public class Angestellter extends Mitarbeiter {
     }
 
     @Override
+    public double berechneGehalt() {
+        return 1500.0 + berechneDienstalter() * 50.0;
+    }
+
+    @Override
     public String toString() {
         return "Angestellter: " + super.toString();
 

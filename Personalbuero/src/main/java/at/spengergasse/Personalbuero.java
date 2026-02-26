@@ -95,13 +95,53 @@ public class Personalbuero {
         int count = 0;
         for (Mitarbeiter ma : employees) {
             if (ma.berechneAlter() == alter) {
-                count++;
+                count++;            // KOMMT ZU PLF 100%
             }
 
         }
         return count;
     }
 
+
+    public Mitarbeiter kuendigen(int pos) {
+        if (pos < 0 || pos >= employees.size()) {
+            throw new IllegalArgumentException("Fehler: Index ungültig");
+        }
+        return employees.remove(pos);  // KOMMT ZU PLF 100%
+    }
+
+    public boolean kuendigen(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Fehler: ungültig!");
+        }
+        for (Mitarbeiter ma : employees) {
+            if (ma.getName().equals(name)) {
+                return employees.remove(ma);
+            }                           // 100% ZU PLF
+        }
+        return false;
+    }
+
+    public boolean kuendigen(Mitarbeiter ma) {
+        if (ma == null) {
+            throw new IllegalArgumentException("Fehler: Null");  // 100% ZU PLF
+        }
+        return employees.remove(ma);
+    }
+
+    public void gehaltsListe() {
+        System.out.println("Gehaltsliste:\n");
+        if (!employees.isEmpty()) {
+            for (Mitarbeiter ma : employees) {
+                System.out.println(ma.getName());
+                System.out.println("Gehalt; " + ma.berechneGehalt() + "EUR");
+
+                System.out.println("Gehaltsumme" + berechneGehaltsumme() + "EUR");
+            }
+        } else {
+            System.out.println("Keine MItarbeiterInnen vorhanden");
+        }
+    }
 
     @Override
     public String toString() {

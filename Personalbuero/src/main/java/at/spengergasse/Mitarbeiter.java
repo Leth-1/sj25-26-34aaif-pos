@@ -2,7 +2,7 @@ package at.spengergasse;
 
 import java.time.Year;
 
-public  abstract class Mitarbeiter {
+public abstract class Mitarbeiter {
     private String name;
     private Year gebJahr;
     private Year eintrJahr;
@@ -60,9 +60,7 @@ public  abstract class Mitarbeiter {
     }
 
 
-    public double berechneGehalt() {
-        return 1500.0 + berechneDienstalter() * 50.0;
-    }
+    public abstract double berechneGehalt();
 
     public double berechnePraemie() {
         return switch (berechneDienstalter()) {
@@ -88,9 +86,6 @@ public  abstract class Mitarbeiter {
     //                return 0.0; // ist default muss man machen, switch case wird nur bei bestimme case benutzt.
     //        }
     //    } Eines davon zu PLF LERNEN!!!
-
-
-
 
 
     @Override

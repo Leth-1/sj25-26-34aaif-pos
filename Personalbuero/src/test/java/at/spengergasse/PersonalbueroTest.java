@@ -7,8 +7,13 @@ import java.time.Year;
 
 class PersonalbueroTest {
 
+    private Personalbuero personalbuero;
+    private Arzt arzt;
+
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
+        this.personalbuero = new Personalbuero();
+        this.arzt = new Arzt("Hr.Mohamad", Year.of(2006), Year.now(), 12,120.0);
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -44,5 +49,10 @@ class PersonalbueroTest {
         System.out.println(angestellter);
     }
 
+    @Test
+    void testArzt(){
+        System.out.println(arzt);
+        System.out.println();
+    }
 
 }
