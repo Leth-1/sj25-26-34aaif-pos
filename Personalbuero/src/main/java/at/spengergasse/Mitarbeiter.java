@@ -2,7 +2,7 @@ package at.spengergasse;
 
 import java.time.Year;
 
-public abstract class Mitarbeiter {
+public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
     private String name;
     private Year gebJahr;
     private Year eintrJahr;
@@ -87,6 +87,23 @@ public abstract class Mitarbeiter {
     //        }
     //    } Eines davon zu PLF LERNEN!!!
 
+
+    @Override
+    public int compareTo(Mitarbeiter o) {
+        return name.compareTo(o.getName());
+//        if (o == null){
+//            throw new NullPointerException("Fehler Null");
+//        }
+//        if (o.getClass() != getClass()){
+//            throw new ClassCastException("Fehler falsche Klasse");
+//        }
+//        if (this.name.equals(name)){
+//            return 0;
+//        } else {
+//
+//        }
+
+    }
 
     @Override
     // Name: Anna, Geb.Jahr: 2001, Alter: 23, Eintr.Jahr: 2024, Dienstalter: 0, Gehalt: 1500.0

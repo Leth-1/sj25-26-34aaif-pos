@@ -1,6 +1,7 @@
 package at.spengergasse;
 
 import java.time.Year;
+import java.util.Objects;
 
 public class Freelancer extends Mitarbeiter{
    private double stundenSatz;
@@ -43,6 +44,20 @@ public class Freelancer extends Mitarbeiter{
     @Override
     public double berechneGehalt() {
         return stundenSatz * stunden;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Freelancer that = (Freelancer) o;
+        return Double.compare(stundenSatz, that.stundenSatz) == 0 && stunden == that.stunden;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stundenSatz, stunden);
     }
 
     @Override

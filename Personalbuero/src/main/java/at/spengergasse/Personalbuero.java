@@ -1,9 +1,6 @@
 package at.spengergasse;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Personalbuero {
     private List<Mitarbeiter> employees; // <-- Collection.
@@ -143,6 +140,26 @@ public class Personalbuero {
         }
     }
 
+    public boolean sortierenNachName() {
+        employees.sort(null);
+        return true;
+    }
+
+    public int zaehleAngstellte() {
+        if (employees.isEmpty()) {
+            return -99;
+        }
+
+        int anzahlAngestellte = 0;
+
+        for (Mitarbeiter ma : employees) {
+            if (ma instanceof Angestellter) {
+                anzahlAngestellte++;
+            }
+        }
+        return anzahlAngestellte;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Personalbüro:\n");
@@ -157,4 +174,22 @@ public class Personalbuero {
     }
 
 
+    public int zaehleAngestellte() {
+        if (employees.isEmpty()) {
+            return -99;
+        }
+        int anzahlAngestellte = 0;
+        for (Mitarbeiter ma : employees) {
+            if (ma instanceof Angestellter) {
+                anzahlAngestellte++;
+            }
+        }
+
+        return anzahlAngestellte;
+    }
+
+    public void sortierenNachAlter() {
+      employees.sort(new alterComparator);
+
+    }
 }
