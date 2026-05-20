@@ -1,2 +1,0 @@
-# AutoBus-Leth-Can
-Autobus 
