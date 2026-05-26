@@ -3,15 +3,33 @@ package at.spengergasse;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+    static void main() throws TanzschuleException {
+        testSaveKurse();
+        testExportPrivatKurseCSV();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+    }
+
+    private static void testExportPrivatKurseCSV() throws TanzschuleException {
+        try {
+            Tanzschule tanzschule = new Tanzschule("Da");
+            tanzschule.hinzufuegen(new PrivatKurs(60, 20.0));
+            tanzschule.hinzufuegen(new GruppenKurs(60, 50));
+            tanzschule.writeKurseToCSV();
+            System.out.println("Export: ok");
+        } catch (TanzschuleException e) {
+            throw new TanzschuleException("Fehler" + e.getMessage());
+        }
+    }
+
+    public static void testSaveKurse() throws TanzschuleException {
+        try {
+            Tanzschule tanzschule = new Tanzschule("Dance");
+            tanzschule.hinzufuegen(new PrivatKurs(2, 10.0));
+            tanzschule.hinzufuegen(new GruppenKurs(90, 20.0));
+            tanzschule.saveKurs();
+            System.out.println("Savekurs: ok");
+        } catch (TanzschuleException e) {
+            throw new TanzschuleException("Fehler" + e.getMessage());
         }
     }
 }
